@@ -26,6 +26,6 @@
 - To add a file `git add <path/to/file>` 
 - To fetch and merge commits: `git pull`
 - To merge a branch into the current working branch `git merge <branch_name>` e.g `git merge master'`
-- To solve "fatal: cannot do a partial commit during a merge." 
+- To solve "fatal: cannot do a partial commit during a merge." `git add <path/to/file>` and then `git commit -m "fixed a merge conflict"`
 #### References:
 [1] (https://git-scm.com/book/en/v2)
