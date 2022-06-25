@@ -18,12 +18,14 @@
 - To show local branches: `git branch -l`
 - To delete an unneeded branch: `git branch -d <branch_name>`
 - To checkout an existing branch `git checkout <branch_name>`
+- To create and checkout a new branch: `git branch -b <branch_name>`
 - To reset or discard all changes: `git reset --hard`
 - To stop tracking a file and remove it: `git rm <path/to/file>`
 - To restore a single file `git restore <path/to/file>`'
 - To undo last commit: `git reset --soft HEAD~1`
 - To add a file `git add <path/to/file>` 
-- To fetch and merge comm
-
+- To fetch and merge commits: `git pull`
+- To merge a branch into the current working branch `git merge <branch_name>` e.g `git merge master'`
+- To solve "fatal: cannot do a partial commit during a merge." 
 #### References:
 [1] (https://git-scm.com/book/en/v2)
