@@ -22,6 +22,8 @@
 - To stop tracking a file and remove it: `git rm <path/to/file>`
 - To restore a single file `git restore <path/to/file>`'
 - To undo last commit: `git reset --soft HEAD~1`
-- 
+- To add a file `git add <path/to/file>` 
+- To fetch and merge comm
+
 #### References:
 [1] (https://git-scm.com/book/en/v2)
