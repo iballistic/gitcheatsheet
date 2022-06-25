@@ -16,7 +16,7 @@
 - To show all remote and local branches: `git branch -a`
 - To show remote branches:  `git branch -r`
 - To show local branches: `git branch -l`
-- To delete an unneeded branc: `git branch -d <branch_name>`
+- To delete an unneeded branch: `git branch -d <branch_name>`
 - To checkout an existing branch `git checkout <branch_name>`
 - To reset or discard all changes: `git reset --hard`
 - To stop tracking a file and remove it: `git rm <path/to/file>`
