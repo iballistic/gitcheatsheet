@@ -18,6 +18,7 @@
 - To show local branches: `git branch -l`
 - To delete an unneeded branch: `git branch -d <branch_name>`
 - To checkout an existing branch `git checkout <branch_name>`
+- To create and checkout a new branch: `git branch -b <branch_name>`
 - To reset or discard all changes: `git reset --hard`
 - To stop tracking a file and remove it: `git rm <path/to/file>`
 - To restore a single file `git restore <path/to/file>`'
