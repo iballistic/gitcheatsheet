@@ -25,13 +25,15 @@
 - To restore a single file `git restore -- <path/to/file>`'
 - To undo last commit: `git reset --soft HEAD~1`
 - To add a file `git add <path/to/file>` 
-- To fetch and merge commits: `git pull`
-- To merge a branch into the current working branch: `git merge <branch_name>` e.g `git merge master'`
+- To fetch and merge commits from remote repo or a bundle: `git pull`
+- To push local changes to remote repo (updates remote refs along with associated objects) `git push`
+- To merge a branch into the current working branch: `git merge <branch_name>` e.g `git merge master`
 - To solve "fatal: cannot do a partial commit during a merge": `git add <path/to/file>` and then `git commit -m "fixed a merge conflict"`
+- To create a zip file with all changed, added files etc (ignore deleted) `git archive --format=zip HEAD `git diff --diff-filter=d HEAD~1 HEAD --name-only` -o paa-patch.zip` ( this command requires bash - special thanks to G.V for sharing.)
 
 ## Viewing the commit history
-- To see ASCII graph og branch and merge history [2](#references) : ```git log --pretty=format:"%h %s" --graph```
-- To see each commit on a single line: `git log --pretty=oneline`
+- To see ASCII graph of branch and merge history [2](#references) : `git log --pretty=format:"%h %s" --graph`
+- To see each commit on a single line: `git log --pretty=oneline` or `git log --oneline` or `git log --oneline --graph --decorate`
 
 
 ## References:
