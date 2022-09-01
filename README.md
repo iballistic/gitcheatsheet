@@ -35,6 +35,9 @@
 - To see ASCII graph of branch and merge history [2](#references) : `git log --pretty=format:"%h %s" --graph`
 - To see each commit on a single line: `git log --pretty=oneline` or `git log --oneline` or `git log --oneline --graph --decorate`
 
+## Compare two branches:
+- git log <original_branch_name>..<work_branch_name> --oneline --graph --decorate --no-merges
+
 
 ## References:
 - [1] (https://git-scm.com/book/en/v2)
