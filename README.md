@@ -27,9 +27,50 @@
 - To add a file `git add <path/to/file>` 
 - To fetch and merge commits from remote repo or a bundle: `git pull`
 - To push local changes to remote repo (updates remote refs along with associated objects) `git push`
+- To push all local branches to resmote `git push --all origin`
 - To merge a branch into the current working branch: `git merge <branch_name>` e.g `git merge master`
 - To solve "fatal: cannot do a partial commit during a merge": `git add <path/to/file>` and then `git commit -m "fixed a merge conflict"`
 - To create a zip file with all changed, added files etc (ignore deleted) ```git archive --format=zip HEAD `git diff --diff-filter=d HEAD~1 HEAD --name-only` -o paa-patch.zip``` ( this command requires bash - special thanks to V.G. for sharing.)
+- To fix "fatal: refusing to merge unrelated histories" `git pull --allow-unrelated-histories`
+
+## Git rebase
+- Git rebase is an alternative command to the git merge commands, commits are copied from branch into another branch with out creating a new log entry which happens with the git merge. For example: `Merge branch "master" into "dev"`
+- To copy commits from master to dev branch `git checkout dev` and then `git rebase master`
+## Git rebase - Scenario 1
+- A dev branch is created based on the master branch. `git checkout -b dev`. The dev branch contains new changes that are specific to development environment and not ready to be deploed yet. In the mean time a new branch "hot_fix" is created out of the "dev" branch to fix a production issue and to be tested in the dev environment first `git checkout -b hot_fix`. The hot fix is finally ready to be deployed in production and needs to be merged into the master branch while all 'development' specific changes must be skipped. 
+- To rebase commits from hot fix branch into master 
+    - figure out the patches since it diverged from the dev `git rebase --onto master dev hot_fix` 
+    - followed by `git checkout master`
+    - then merge hot fix into master `git merge hot_fix`
+
+## Git merge conflict resolve - Scenario 1
+- `git pull` or `git merge <branch_name>`
+- `git checkout --their README.md`
+- `git add README.md`
+- `git commit -m "Fixed README.md merge conflict"`
+- `git push `
+
+
+## Git merge conflict resolve - Scenario 2
+- `git pull` or `git merge <branch_name>`
+- `git checkout --ours README.md`
+- `git add README.md`
+- `git commit -m "Fixed README.md merge conflict"`
+- `git push`
+
+## Git merge conflict resolve - Scenario 3
+- `git pull` or `git merge <branch_name>`
+- Identify changes manually, usually separates by "=======". In this example master branch has a text "master+" in the README.md file while "fix" branch has a similar change in the file and line: "master+fix". Merging master into the "fix" branch fails with an error "Automatic merge failed; fix conflicts and then commit the result"
+```<<<<<<< HEAD
+master+fix
+=======
+master+
+>>>>>>> master
+master+fix
+```
+- `git add README.md`
+- `git commit -m "Fixed README.md merge conflict"`
+- `git push `
 
 ## Viewing the commit history
 - To see ASCII graph of branch and merge history [2](#references) : `git log --pretty=format:"%h %s" --graph`
@@ -42,3 +83,4 @@
 ## References:
 - [1] (https://git-scm.com/book/en/v2)
 - [2] (https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
+- [2] (https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
